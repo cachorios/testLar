@@ -8,10 +8,9 @@ Característica: Titular de la cuenta retira dinero
 Antecedentes:
     Dado que estoy en la ruta "homepage"
 
-Escenario: La cuenta tiene suficiente fondo
+Escenario: Retirar dinero, La cuenta tiene suficiente fondo
     Dado que el saldo de la cuenta es $ 100
     Y la tarjeta es válida
-    Y la maquina tiene suficiente dinero
     Cuando la solicitud del titular es retirar de su cuenta $ 20
     Entonces el cajero debe dar $ 20
     Y el saldo de la cuenta debe ser $ 80

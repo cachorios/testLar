@@ -30,9 +30,13 @@ class Cajero extends WebContext
     /**
      * @Given que el saldo de la cuenta es $ :arg1
      */
-    public function queElSaldoDeLaCuentaEs($arg1)
+    public function queElSaldoDeLaCuentaEs($saldo)
     {
-        throw new PendingException();
+
+        /** @var \AppBundle\Model\Cuenta $cuentaMan */
+        $cuentaMan = $this->getContainer()->get("cajero_manajer");
+        $cuentaMan->iniciarSaldo($saldo);
+
     }
 
     /**
@@ -40,23 +44,21 @@ class Cajero extends WebContext
      */
     public function laTarjetaEsValida()
     {
-        throw new PendingException();
+        //throw new PendingException();
     }
 
-    /**
-     * @Given la maquina tiene suficiente dinero
-     */
-    public function laMaquinaTieneSuficienteDinero()
-    {
-        throw new PendingException();
-    }
 
     /**
      * @When la solicitud del titular es retirar de su cuenta $ :arg1
      */
-    public function laSolicitudDelTitularEsRetirarDeSuCuenta($arg1)
+    public function laSolicitudDelTitularEsRetirarDeSuCuenta($importe)
     {
-        throw new PendingException();
+            echo "importe--->".$importe;
+            $this->rellenoCampo("importe",$importe);
+            $this->clickButton("Solicitar");
+            $cuentaMan = $this->getContainer()->get("cajero_manajer");
+            $cuentaMan->getMoney($importe);
+            echo "----->" .$cuentaMan->getSaldo();
     }
 
     /**
@@ -64,15 +66,15 @@ class Cajero extends WebContext
      */
     public function elCajeroDebeDar($arg1)
     {
-        throw new PendingException();
+//        throw new PendingException();
     }
 
     /**
      * @Then el saldo de la cuenta debe ser $ :arg1
      */
-    public function elSaldoDeLaCuentaDebeSer($arg1)
+    public function elSaldoDeLaCuentaDebeSer($saldo)
     {
-        throw new PendingException();
+        $this->iShouldSeeHeading("EL saldo es $saldo");
     }
 
     /**

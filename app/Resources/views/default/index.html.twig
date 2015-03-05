@@ -1,5 +1,16 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    Homepage.
+    <h1>Cajero Automatico</h1>
+    <h2>EL saldo es {{ saldo }}</h2>
+
+    <br><br><br>
+    <form method="post">
+        <label>Monto a retirar:</label>
+        <input type="text" value="0" id="importe" name="importe">
+        <button type="submit">Solicitar</button>
+    </form>
+
+
+
 {% endblock %}
