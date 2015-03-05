@@ -1,0 +1,28 @@
+
+default:
+    suites:
+        app:
+            type: symfony_bundle
+            bundle: AppBundle
+            contexts:
+                - AppBundle\Behat\Context\Cajero
+    extensions:
+        Behat\Symfony2Extension: ~
+        Behat\MinkExtension:
+            base_url: http://localhost/testLar/web/app_test.php
+            sessions:
+                default:
+                    goutte: ~
+                goutte:
+                    goutte: ~
+                zombie:
+                    zombie: ~
+#                selenium2:
+#                    selenium2: ~
+#                symfony2:
+#                    symfony2: ~
+
+  #formatter:
+  #  name: pretty,html
+  #  parameters:
+  #    output_path: null, behat/html-report/behat_report.html
