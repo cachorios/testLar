@@ -6,17 +6,17 @@ use Symfony\Component\Config\Definition\Exception\Exception;
 
 class Cuenta
 {
-    private $saldo = 0;
+    public static $saldo = 100;
     private $activo = true;
 
     public function iniciarSaldo($saldo)
     {
-        $this->saldo = $saldo;
+        Cuenta::$saldo = $saldo;
     }
 
     public function getSaldo()
     {
-        return $this->saldo;
+        return Cuenta::$saldo;
     }
 
     public function getMoney($importe)
@@ -24,9 +24,9 @@ class Cuenta
 
         try {
             if ($this->activo) {
-                if ($this->saldo > $importe) {
-                    $this->saldo -= $importe;
-                    return $this->saldo;
+                if (Cuenta::$saldo > $importe) {
+                    Cuenta::$saldo -= $importe;
+                    return Cuenta::$saldo;
                 } else {
                     throw new \Exception("Saldo Insuficiente");
                 }

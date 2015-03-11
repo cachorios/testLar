@@ -53,12 +53,16 @@ class Cajero extends WebContext
      */
     public function laSolicitudDelTitularEsRetirarDeSuCuenta($importe)
     {
-            echo "importe--->".$importe;
+            $cuentaMan = $this->getContainer()->get("cajero_manajer");
+            echo "----->" .$cuentaMan->getSaldo();
             $this->rellenoCampo("importe",$importe);
             $this->clickButton("Solicitar");
-            $cuentaMan = $this->getContainer()->get("cajero_manajer");
-            $cuentaMan->getMoney($importe);
+
+
+
             echo "----->" .$cuentaMan->getSaldo();
+
+
     }
 
     /**
@@ -74,7 +78,9 @@ class Cajero extends WebContext
      */
     public function elSaldoDeLaCuentaDebeSer($saldo)
     {
-        $this->iShouldSeeHeading("EL saldo es $saldo");
+//        ld("---->",$this->printPageContent());
+        $this->iShouldSeeHeading("El saldo es $saldo");
+
     }
 
     /**

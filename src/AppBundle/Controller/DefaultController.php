@@ -15,14 +15,15 @@ class DefaultController extends Controller
     {
         /** @var \AppBundle\Model\Cuenta $cajeroMan */
         $cajeroMan = $this->container->get("cajero_manajer");
-    /*    if($cajeroMan->getSaldo() == 0)
-            $cajeroMan ->iniciarSaldo(100);
-*/
+
+        $this->get("logger")->info("Saldo----> ".$cajeroMan->getSaldo());
+
         if( $request->isMethod('post')){
             $this->get("logger")->info("importe");
             $importe = $request->get("importe");
             $this->get("logger")->info($importe);
             $cajeroMan->getMoney($importe);
+            $this->get("logger")->info($cajeroMan->getSaldo());
         }
 
 
