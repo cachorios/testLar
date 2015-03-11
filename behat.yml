@@ -9,7 +9,7 @@ default:
     extensions:
         Behat\Symfony2Extension: ~
         Behat\MinkExtension:
-            base_url: http://localhost/testLar/web/app_test.php
+            base_url: http://localhost/testLar/web/app_dev.php/
             sessions:
                 default:
                     goutte: ~

@@ -141,5 +141,13 @@ class WebContext extends DefaultContext
 
     }
 
+//    /**
+//     * @Then /^Ver "([^"]+)" en :tag$/
+//     */
+//    public function iShouldSeeHeading($heading)
+//    {
+//        $this->assertSession()->elementTextContains('xpath', '//h1 | //h2 | //h3', $this->fixStepArgument($heading));
+//    }
+
 
 }
